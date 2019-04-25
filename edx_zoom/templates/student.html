@@ -1,0 +1,71 @@
+<h2 class="problem-header">
+    ## Translators:  "External resource" means that this learning module is hosted on a platform external to the edX LMS
+    ${display_name} (External resource)
+</h2>
+
+<div
+    id="${element_id}"
+    class="${element_class} lti-consumer-container"
+    data-ask-to-send-username="True"
+    data-ask-to-send-email="True"
+>
+% if description:
+<div class="lti-description">${description}</div>
+% endif
+
+% if launch_url and not hide_launch and not missing_credentials:
+    % if launch_target in ['modal', 'new_window']:
+        <section class="wrapper-lti-link">
+            <p class="lti-link external">
+                % if launch_target == 'modal':
+                    <button
+                        class="btn btn-pl-primary btn-base btn-lti-modal"
+                        data-target="#${element_id + '-lti-modal'}"
+                    >
+                        ${button_text or 'View resource in a modal window'} <i class="icon fa fa-external-link"></i>
+                    </button>
+                % else:
+                    <button
+                        class="btn btn-pl-primary btn-base btn-lti-new-window"
+                        data-target="${form_url}"
+                    >
+                        ${button_text or 'View resource in a new window'} <i class="icon fa fa-external-link"></i>
+                    </button>
+                % endif
+            </p>
+        </section>
+    % endif
+    % if launch_target == 'modal':
+        <section
+            id="${element_id}-lti-modal"
+            class="modal lti-modal"
+            aria-hidden="true"
+            style="width:${modal_width}%; left:${modal_horizontal_offset}%; top:${modal_vertical_offset}%; bottom:${modal_vertical_offset}%;"
+            data-launch-url="${form_url}"
+        >
+            <div class="inner-wrapper" role="dialog">
+                <button class="close-modal">
+                    <i class="icon fa fa-remove"></i>
+                    <span class="sr">Close</span>
+                </button>
+                ## The result of the LTI launch form submit will be rendered here.
+                ## initial_launch_url is set to an empty string here because
+                ## in "modal" launch mode, we use javascript to set the src
+                ## attribute of the iframe when the modal window is opened.
+                <%include file="templates/lti_iframe.html" args="initial_launch_url=''"/>
+            </div>
+        </section>
+    % endif
+    % if launch_target == 'iframe':
+        <div style="height:${inline_height}px;">
+            ## The result of the LTI launch form submit will be rendered here.
+            <%include file="templates/lti_iframe.html" args="initial_launch_url=form_url"/>
+        </div>
+    % endif
+% elif missing_credentials:
+    <h3 class="error_message">
+        <strong>Please configure zoom LTI credentials for this course.</strong>
+    </h3>
+% endif
+
+</div>

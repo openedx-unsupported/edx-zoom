@@ -1,0 +1,4 @@
+django
+edx-opaque-keys
+git+https://github.com/edx/xblock-lti-consumer.git@v1.1.8#egg=lti_consumer-xblock==1.1.8
+-e .
