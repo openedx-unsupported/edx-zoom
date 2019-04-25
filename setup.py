@@ -33,9 +33,6 @@ setup(
         'lti_consumer-xblock',
     ],
     entry_points={
-        "openedx.course_tab": [
-            "zoom = edx_zoom.tabs:ZoomTab",
-        ],
         'xblock.v1': [
             'edx_zoom = edx_zoom:ZoomXBlock',
         ],
