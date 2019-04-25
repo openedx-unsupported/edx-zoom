@@ -13,7 +13,12 @@ log = logging.getLogger(__name__)
 
 
 class ZoomXBlock(LtiConsumerXBlock):
-    launch_url = 'https://applications.zoom.us/lti/rich'
+    launch_url = String(
+        display_name=_("LTI URL"),
+        default='https://applications.zoom.us/lti/rich',
+        scope=Scope.settings
+    )
+
     lti_id = 'zoom'
     display_name = String(
         display_name=_("Display Name"),
@@ -37,7 +42,7 @@ class ZoomXBlock(LtiConsumerXBlock):
     block_settings_key = 'edx_zoom'
 
     editable_fields = (
-        'display_name', 'description', 'custom_parameters',
+        'display_name', 'description', 'custom_parameters', 'launch_url',
         'launch_target', 'inline_height', 'modal_height', 'modal_width'
     )
 
