@@ -45,6 +45,7 @@ class ZoomXBlock(LtiConsumerXBlock):
         'display_name', 'description', 'custom_parameters', 'launch_url',
         'launch_target', 'inline_height', 'modal_height', 'modal_width'
     )
+    ask_to_send_username = ask_to_send_email = True
 
 
     @property
