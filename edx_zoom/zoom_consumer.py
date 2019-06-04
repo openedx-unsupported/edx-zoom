@@ -32,18 +32,33 @@ class ZoomXBlock(LtiConsumerXBlock):
     description = String(
         display_name=_("LTI Application Information"),
         help=_(
-            "Enter a description of the third party application. "
-            "If requesting username and/or email, use this text box to inform users "
-            "why their username and/or email will be forwarded to a third party application."
+            "Enter a description of your use of Zoom. "
         ),
         default=_("Use Zoom to join office hours and other fun meetings"),
+        scope=Scope.settings
+    )
+    lti_key = String(
+        display_name=_("LTI Application Key"),
+        help=_(
+            "Enter the LTI key you created on zoom.us"
+        ),
+        default="",
+        scope=Scope.settings
+    )
+    lti_secret = String(
+        display_name=_("LTI Application Secret"),
+        help=_(
+            "Enter the LTI secret you created on zoom.us"
+        ),
+        default="",
         scope=Scope.settings
     )
     block_settings_key = 'edx_zoom'
 
     editable_fields = (
         'display_name', 'description', 'custom_parameters', 'launch_url',
-        'launch_target', 'inline_height', 'modal_height', 'modal_width'
+        'lti_key', 'lti_secret', 'inline_height',
+        'modal_height', 'modal_width'
     )
     ask_to_send_username = ask_to_send_email = True
 
@@ -56,13 +71,17 @@ class ZoomXBlock(LtiConsumerXBlock):
         from .models import LTICredential
         creds = getattr(self, '_lti_credentials', None)
         if creds is None:
-            log.info('getting key and secret for %s', self.course_id)
-            try:
-                cred = LTICredential.objects.get(course_id=self.course_id)
-            except LTICredential.DoesNotExist:
-                return None, None
-            log.info('key:%s secret:%s', cred.key, cred.secret)
-            creds = self._lti_credentials = cred.key, cred.secret
+            if self.lti_key and self.lti_secret:
+                creds = (self.lti_key, self.lti_secret)
+                log.info("using key from xblock %s", self.location)
+            else:
+                log.info('getting key and secret for %s', self.course_id)
+                try:
+                    cred = LTICredential.objects.get(course_id=self.course_id)
+                except LTICredential.DoesNotExist:
+                    return None, None
+                creds = cred.key, cred.secret
+            self._lti_credentials = creds
         return creds
 
     def _get_context_for_template(self):

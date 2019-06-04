@@ -22,7 +22,7 @@ def package_data(pkg, roots):
 
 setup(
     name='edx-zoom',
-    version='1.0.0',
+    version='1.0.1',
     description='This XBlock implements the LTI interface for Zoom video conferencing.',
     packages=[
         'edx_zoom',
