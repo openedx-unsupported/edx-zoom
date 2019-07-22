@@ -10,6 +10,7 @@ import warnings
 from django.apps import AppConfig
 
 
+
 class XBlockZoomApp(AppConfig):
     """
     Configuration for the edx_zoom Django application.
@@ -17,3 +18,7 @@ class XBlockZoomApp(AppConfig):
 
     name = 'edx_zoom'
     plugin_app = {}
+
+    def ready(self):
+        from .utils import add_to_course_fields
+        add_to_course_fields()
