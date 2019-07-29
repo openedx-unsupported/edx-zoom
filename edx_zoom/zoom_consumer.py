@@ -37,69 +37,43 @@ class ZoomXBlock(LtiConsumerXBlock):
         help=_(
             "Enter a description of your use of Zoom. "
         ),
-        default=_("Use Zoom to join office hours and other fun meetings"),
-        scope=Scope.settings
-    )
-    lti_key = String(
-        display_name=_("Application Key"),
-        help=_(
-            "Enter the LTI key you created on zoom.us"
-        ),
-        default="",
-        scope=Scope.settings
-    )
-    lti_secret = String(
-        display_name=_("Application Secret"),
-        help=_(
-            "Enter the LTI secret you created on zoom.us"
-        ),
-        default="",
+        default=_("Use Zoom to host office hours and other course meetings"),
         scope=Scope.settings
     )
     block_settings_key = 'edx_zoom'
 
     editable_fields = (
         'display_name', 'description', 'custom_parameters', 'override_launch_url',
-        'lti_key', 'lti_secret', 'inline_height',
-        'modal_height', 'modal_width'
+        'inline_height', 'modal_height', 'modal_width'
     )
     ask_to_send_username = ask_to_send_email = True
 
 
     @cached_property
-    def model_settings(self):
+    def launch_settings(self):
         from .models import LTICredential
         log.info('getting key and secret for %s', self.course_id)
         try:
             cred = LTICredential.objects.get(course_id=self.course_id)
+            course_settings = {'key': cred.key, 'secret': cred.secret, 'url': cred.launch_url}
         except LTICredential.DoesNotExist:
-            cred = None
-        return cred
+            course_settings = getattr(self.course, 'zoom_settings', {})
+        if not course_settings.get('url', ''):
+            course_settings['url'] = self.override_launch_url
+        return course_settings
 
     @cached_property
     def lti_provider_key_secret(self):
         """
         Obtains client_key and client_secret credentials from current course.
         """
-        if self.lti_key and self.lti_secret:
-            creds = (self.lti_key, self.lti_secret)
-            log.info("using key from xblock %s", self.location)
-        else:
-            log.info('getting key and secret for %s', self.course_id)
-            creds = self.model_settings
-            if creds:
-                creds = creds.key, creds.secret
-            else:
-                creds = None, None
-        return creds
+        log.info('getting key and secret for %s', self.course_id)
+        creds = self.launch_settings
+        return creds.get('key', None), creds.get('secret', None)
 
     @property
     def launch_url(self):
-        creds = self.model_settings
-        if creds:
-            return creds.launch_url
-        else:
-            return self.override_launch_url
+        return self.launch_settings['url']
 
     def _get_context_for_template(self):
         ctx = super(ZoomXBlock, self)._get_context_for_template()
