@@ -4,9 +4,6 @@ edx_zoom Django application initialization.
 """
 from __future__ import absolute_import, unicode_literals
 
-import traceback
-import warnings
-
 from django.apps import AppConfig
 
 
@@ -20,5 +17,8 @@ class XBlockZoomApp(AppConfig):
     plugin_app = {}
 
     def ready(self):
+        """
+        Monkeypatch the course metadata
+        """
         from .utils import add_to_course_fields
         add_to_course_fields()

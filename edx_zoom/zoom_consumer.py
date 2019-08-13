@@ -1,3 +1,8 @@
+"""
+edx-zoom XBlock
+
+Subclass of LtiConsumerXBlock
+"""
 from __future__ import absolute_import, unicode_literals
 
 import logging
@@ -5,8 +10,7 @@ import logging
 from lti_consumer import LtiConsumerXBlock
 from lti_consumer.utils import _
 from web_fragments.fragment import Fragment
-from xblock.core import List, Scope, String, XBlock
-from xblock.fields import Boolean, Float, Integer
+from xblock.core import Scope, String
 from xblockutils.resources import ResourceLoader
 
 from django.utils.functional import cached_property
@@ -55,9 +59,10 @@ class ZoomXBlock(LtiConsumerXBlock):
         log.info('getting key and secret for %s', self.course_id)
         try:
             cred = LTICredential.objects.get(course_id=self.course_id)
-            course_settings = {'key': cred.key, 'secret': cred.secret, 'url': cred.launch_url}
+            course_settings = {'key': cred.key, 'secret': cred.secret, 'url': cred.launch_url, 'managed': True}
         except LTICredential.DoesNotExist:
             course_settings = getattr(self.course, 'zoom_settings', {})
+            course_settings['managed'] = False
         if not course_settings.get('url', ''):
             course_settings['url'] = self.override_launch_url
         return course_settings
@@ -94,4 +99,6 @@ class ZoomXBlock(LtiConsumerXBlock):
         fragment.add_css(loader.load_unicode('static/css/student.css'))
         fragment.add_javascript(lti_loader.load_unicode('static/js/xblock_lti_consumer.js'))
         fragment.initialize_js('LtiConsumerXBlock')
+        from .models import LaunchLog
+        LaunchLog.update(self.runtime.user_id, self.location, self.launch_settings['managed'])
         return fragment
