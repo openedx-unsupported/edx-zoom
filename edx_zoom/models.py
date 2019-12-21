@@ -25,7 +25,7 @@ class LaunchLog(models.Model):
     """
     Records first/last user access to each Zoom XBlocks
     """
-    user = models.ForeignKey(get_user_model(), null=True)
+    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.CASCADE)
     course_id = CourseKeyField(max_length=255, db_index=True)
     location = UsageKeyField(max_length=255)
     managed = models.BooleanField(db_index=True, default=False)
