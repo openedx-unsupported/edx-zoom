@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.timezone import now
 
@@ -25,7 +25,7 @@ class LaunchLog(models.Model):
     """
     Records first/last user access to each Zoom XBlocks
     """
-    user = models.ForeignKey(get_user_model(), null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     course_id = CourseKeyField(max_length=255, db_index=True)
     location = UsageKeyField(max_length=255)
     managed = models.BooleanField(db_index=True, default=False)
