@@ -1,0 +1,20 @@
+<h2 class="problem-header">
+    ## Translators:  "External resource" means that this learning module is hosted on a platform external to the edX LMS
+    ${display_name} (External resource)
+</h2>
+
+% if description:
+<div class="lti-description">${description}</div>
+% endif
+
+% if missing_credentials:
+    <h3 class="error_message">
+        <strong>Please configure zoom LTI credentials for this course.</strong>
+    </h3>
+% else:
+    <h3 class="error_message">
+        <strong>Zoom content will appear in the LMS view.</strong>
+    </h3>
+% endif
+
+</div>

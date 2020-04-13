@@ -13,7 +13,7 @@
 <div class="lti-description">${description}</div>
 % endif
 
-% if launch_url and not hide_launch and not missing_credentials and not is_studio:
+% if launch_url and not hide_launch and not missing_credentials:
     % if launch_target in ['modal', 'new_window']:
         <section class="wrapper-lti-link">
             <p class="lti-link external">
@@ -62,10 +62,6 @@
             <%include file="templates/lti_iframe.html" args="initial_launch_url=form_url"/>
         </div>
     % endif
-% elif is_studio:
-    <h3 class="error_message">
-        <strong>Zoom content will appear in the LMS view.</strong>
-    </h3>
 % elif missing_credentials:
     <h3 class="error_message">
         <strong>Please configure zoom LTI credentials for this course.</strong>

@@ -51,6 +51,7 @@ class ZoomXBlock(LtiConsumerXBlock):
         'inline_height', 'modal_height', 'modal_width'
     )
     ask_to_send_username = ask_to_send_email = True
+    has_author_view = True
 
 
     @cached_property
@@ -84,21 +85,24 @@ class ZoomXBlock(LtiConsumerXBlock):
         ctx = super(ZoomXBlock, self)._get_context_for_template()
         ctx['missing_credentials'] = self.lti_provider_key_secret[0] is None
         ctx['ask_to_send_username'] = ctx['ask_to_send_email'] = True
-        try:
-            ctx['is_studio'] = self.runtime.service(self, 'completion') is None
-        except Exception:
-            ctx['is_studio'] = True
         return ctx
 
     def student_view(self, context):
         fragment = Fragment()
         lti_loader = ResourceLoader('lti_consumer')
         loader = ResourceLoader(__name__)
-        context.update(self._get_context_for_template())
+        context = self._get_context_for_template()
         fragment.add_content(loader.render_mako_template('/templates/student.html', context))
         fragment.add_css(loader.load_unicode('static/css/student.css'))
         fragment.add_javascript(lti_loader.load_unicode('static/js/xblock_lti_consumer.js'))
         fragment.initialize_js('LtiConsumerXBlock')
         from .models import LaunchLog
         LaunchLog.update(self.runtime.user_id, self.location, self.launch_settings['managed'])
+        return fragment
+
+    def author_view(self, context):
+        fragment = Fragment()
+        loader = ResourceLoader(__name__)
+        context.update(self._get_context_for_template())
+        fragment.add_content(loader.render_mako_template('/templates/author.html', context))
         return fragment
