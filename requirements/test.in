@@ -1,0 +1,14 @@
+# Requirements for test runs
+-c constraints.txt
+
+-r base.txt               # Core dependencies for the cookiecutter
+
+django-nose==1.4.4
+astroid
+edx-lint==0.5.3
+ddt
+coveralls
+mock
+pep8
+-e git+https://github.com/edx/django-pyfs.git@1.0.3#egg=django-pyfs==1.0.3
+-e git+https://github.com/edx/xblock-sdk.git#egg=xblock-sdk

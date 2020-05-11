@@ -5,8 +5,7 @@ python:
 cache:
 - pip
 install:
-- pip install six
-- make install
+- pip install -r requirements/travis.txt
 sudo: false
 script:
 - echo "Success"
