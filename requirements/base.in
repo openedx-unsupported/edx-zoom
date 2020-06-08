@@ -3,4 +3,4 @@
 
 django
 edx-opaque-keys
--e git+https://github.com/edx/xblock-lti-consumer.git@v1.1.8#egg=lti_consumer-xblock==1.1.8
+lti-consumer-xblock
