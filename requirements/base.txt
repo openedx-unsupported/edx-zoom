@@ -4,17 +4,18 @@
 #
 #    make upgrade
 #
--e git+https://github.com/edx/xblock-lti-consumer.git@v1.1.8#egg=lti_consumer-xblock==1.1.8  # via -r requirements/base.in
-appdirs==1.4.3            # via fs
+appdirs==1.4.4            # via fs
 bleach==3.1.5             # via lti-consumer-xblock
-django==2.2.12            # via -c requirements/constraints.txt, -r requirements/base.in
+django==2.2.13            # via -c requirements/constraints.txt, -r requirements/base.in, lti-consumer-xblock
 edx-opaque-keys==2.1.0    # via -r requirements/base.in
 fs==2.4.11                # via xblock
-lxml==4.5.0               # via lti-consumer-xblock, xblock
-mako==1.1.2               # via lti-consumer-xblock, xblock-utils
+lazy==1.4                 # via lti-consumer-xblock
+lti-consumer-xblock==1.4.2  # via -r requirements/base.in
+lxml==4.5.1               # via lti-consumer-xblock, xblock
+mako==1.1.3               # via lti-consumer-xblock, xblock-utils
 markupsafe==1.1.1         # via mako, xblock
 oauthlib==3.1.0           # via lti-consumer-xblock
-packaging==20.3           # via bleach
+packaging==20.4           # via bleach
 pbr==5.4.5                # via stevedore
 pymongo==3.10.1           # via edx-opaque-keys
 pyparsing==2.4.7          # via packaging
@@ -22,15 +23,15 @@ python-dateutil==2.8.1    # via xblock
 pytz==2020.1              # via django, fs, xblock
 pyyaml==5.3.1             # via xblock
 simplejson==3.17.0        # via xblock-utils
-six==1.14.0               # via bleach, edx-opaque-keys, fs, packaging, python-dateutil, stevedore, xblock
+six==1.15.0               # via bleach, edx-opaque-keys, fs, packaging, python-dateutil, stevedore, xblock
 sqlparse==0.3.1           # via django
 stevedore==1.32.0         # via edx-opaque-keys
 typing==3.7.4.1           # via fs
-web-fragments==0.3.1      # via xblock, xblock-utils
+web-fragments==0.3.2      # via xblock, xblock-utils
 webencodings==0.5.1       # via bleach
 webob==1.8.6              # via xblock
-xblock-utils==2.0.0       # via lti-consumer-xblock
-xblock==1.2.9             # via lti-consumer-xblock, xblock-utils
+xblock-utils==2.1.1       # via lti-consumer-xblock
+xblock==1.3.1             # via lti-consumer-xblock, xblock-utils
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
