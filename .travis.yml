@@ -9,9 +9,6 @@ install:
 sudo: false
 script:
 - echo "Success"
-branches:
-  only:
-  - master
 after_success: coveralls
 deploy:
   provider: pypi
