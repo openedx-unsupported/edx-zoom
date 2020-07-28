@@ -1,0 +1,6 @@
+# Development requirements
+-c constraints.txt
+-r pip_tools.in
+
+-r base.in
+-r test.in

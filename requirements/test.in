@@ -3,7 +3,7 @@
 
 -r base.txt               # Core dependencies for the cookiecutter
 
-django-nose==1.4.4
+pytest-django
 astroid
 edx-lint==0.5.3
 ddt
