@@ -1,4 +1,4 @@
-# .coveragerc for xblock-lti-consumer
+# .coveragerc for edx-zoom
 [run]
 data_file = .coverage
-source = lti_consumer
+source = .
