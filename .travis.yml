@@ -1,14 +1,13 @@
 language: python
 python:
-- 3.5
-- 3.8
+  - '3.8'
 cache:
-- pip
+  - pip
 install:
-- pip install -r requirements/travis.txt
+  - pip install -r requirements/travis.txt
 sudo: false
 script:
-- echo "Success"
+  - echo "Success"
 after_success: coveralls
 deploy:
   provider: pypi

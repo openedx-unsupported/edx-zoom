@@ -1,5 +1,3 @@
-
-
 from django.db import models
 from django.conf import settings
 from django.utils.encoding import python_2_unicode_compatible
@@ -48,4 +46,4 @@ class LaunchLog(models.Model):
         return obj
 
     def __str__(self):
-        return "{} visited {} on {}".format(self.user_id, self.location, self.last_access)
+        return f"{self.user_id} visited {self.location} on {self.last_access}"

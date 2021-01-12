@@ -81,7 +81,7 @@ class ZoomXBlock(LtiConsumerXBlock):
         return self.launch_settings['url']
 
     def _get_context_for_template(self):
-        ctx = super(ZoomXBlock, self)._get_context_for_template()
+        ctx = super()._get_context_for_template()
         ctx['missing_credentials'] = self.lti_provider_key_secret[0] is None
         ctx['ask_to_send_username'] = ctx['ask_to_send_email'] = True
         return ctx
