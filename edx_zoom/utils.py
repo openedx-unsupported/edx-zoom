@@ -1,4 +1,3 @@
-
 from xmodule.course_module import CourseFields, Dict, Scope
 from django.utils.translation import ugettext as _
 

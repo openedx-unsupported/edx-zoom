@@ -43,7 +43,7 @@ def is_requirement(line):
 
 setup(
     name='edx-zoom',
-    version='1.8',
+    version='2.0.0',
     description='This XBlock implements the LTI interface for Zoom video conferencing.',
     packages=[
         'edx_zoom',
