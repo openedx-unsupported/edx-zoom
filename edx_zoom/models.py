@@ -1,13 +1,11 @@
 from django.db import models
 from django.conf import settings
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.timezone import now
 
 from opaque_keys.edx.django.models import CourseKeyField, UsageKeyField
 from opaque_keys.edx.keys import UsageKey
 
 
-@python_2_unicode_compatible
 class LTICredential(models.Model):
     course_id = CourseKeyField(max_length=255, unique=True)
     key = models.CharField(max_length=255)
@@ -18,7 +16,6 @@ class LTICredential(models.Model):
         return 'LTI credential for %s' % self.course_id
 
 
-@python_2_unicode_compatible
 class LaunchLog(models.Model):
     """
     Records first/last user access to each Zoom XBlocks
