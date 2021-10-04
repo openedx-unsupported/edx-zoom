@@ -13,6 +13,7 @@ install-test:
 install: install-test
 
 requirements: ## install development environment requirements
+	pip install -q -r requirements/pip.txt
 	pip install -q -r requirements/dev.txt
 
 quality:
@@ -20,11 +21,20 @@ quality:
 
 test: clean
 
+COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
+.PHONY: $(COMMON_CONSTRAINTS_TXT)
+$(COMMON_CONSTRAINTS_TXT):
+	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
+
 upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
-upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
+upgrade: $(COMMON_CONSTRAINTS_TXT)	## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -q -r requirements/pip_tools.txt
+	pip-compile --upgrade --allow-unsafe -o requirements/pip.txt requirements/pip.in
 	pip-compile --upgrade -o requirements/pip_tools.txt requirements/pip_tools.in
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
-	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
+    # Let tox control the Django version for tests
+	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
+	mv requirements/test.tmp requirements/test.txt

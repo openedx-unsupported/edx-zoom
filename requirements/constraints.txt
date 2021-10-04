@@ -9,9 +9,4 @@
 # linking to it here is good.
 
 # Common constraints for edx repos
--c https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt
- 
-# TODO: Many pinned dependencies should be unpinned and/or moved to this constraints file.
-
-# mock version 4.0.0 drops support for python 3.5
-mock<4.0.0
+-c common_constraints.txt

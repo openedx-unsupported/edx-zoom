@@ -11,6 +11,7 @@
 .redcar/
 codekit-config.json
 .pycharm_helpers/
+.tox/
 
 ### Testing artifacts
 .coverage
