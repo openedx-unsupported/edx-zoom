@@ -11,4 +11,5 @@ coveralls
 mock
 pep8
 xblock-sdk
+tox
 -e git+https://github.com/edx/django-pyfs.git@1.0.3#egg=django-pyfs==1.0.3
