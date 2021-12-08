@@ -10,7 +10,11 @@ appdirs==1.4.4
     # via
     #   -r requirements/base.txt
     #   fs
-astroid==2.8.0
+asgiref==3.4.1
+    # via
+    #   -r requirements/base.txt
+    #   django
+astroid==2.9.0
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -18,29 +22,29 @@ astroid==2.8.0
     #   pylint-celery
 attrs==21.2.0
     # via pytest
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.1.1
     # via virtualenv
 bleach==4.1.0
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
-certifi==2021.5.30
+certifi==2021.10.8
     # via
     #   -r requirements/base.txt
     #   requests
-charset-normalizer==2.0.6
+charset-normalizer==2.0.9
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.0.1
+click==8.0.3
     # via
     #   click-log
     #   edx-lint
 click-log==0.1.8
     # via edx-lint
-coverage==5.5
+coverage==6.2
     # via coveralls
-coveralls==3.2.0
+coveralls==3.3.1
     # via -r requirements/test.in
 ddt==1.4.4
     # via -r requirements/test.in
@@ -54,7 +58,7 @@ distlib==0.3.3
     #   django-filter
     #   djangorestframework
     #   edx-django-utils
-    #   jsonfield2
+    #   jsonfield
     #   lti-consumer-xblock
     #   xblock-sdk
 django-config-models==2.2.0
@@ -85,15 +89,15 @@ edx-django-utils==4.4.0
     #   django-config-models
 edx-lint==0.5.3
     # via -r requirements/test.in
-edx-opaque-keys[django]==2.2.2
+edx-opaque-keys==2.2.2
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
-filelock==3.3.0
+filelock==3.4.0
     # via
     #   tox
     #   virtualenv
-fs==2.4.13
+fs==2.4.14
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -101,15 +105,15 @@ future==0.18.2
     # via
     #   -r requirements/base.txt
     #   pyjwkest
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/base.txt
     #   requests
 iniconfig==1.1.1
     # via pytest
-isort==5.9.3
+isort==5.10.1
     # via pylint
-jsonfield2==4.0.0.post0
+jsonfield==3.1.0
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
@@ -119,14 +123,14 @@ lazy==1.4
     #   lti-consumer-xblock
 lazy-object-proxy==1.6.0
     # via astroid
-lti-consumer-xblock==3.0.3
+lti-consumer-xblock==3.1.2
     # via -r requirements/base.txt
-lxml==4.6.3
+lxml==4.6.4
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
     #   xblock
-mako==1.1.5
+mako==1.1.6
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
@@ -140,7 +144,7 @@ mccabe==0.6.1
     # via pylint
 mock==4.0.3
     # via -r requirements/test.in
-newrelic==7.0.0.166
+newrelic==7.2.4.171
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -148,13 +152,13 @@ oauthlib==3.1.1
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
-packaging==21.0
+packaging==21.3
     # via
     #   -r requirements/base.txt
     #   bleach
     #   pytest
     #   tox
-pbr==5.6.0
+pbr==5.8.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -172,11 +176,11 @@ psutil==5.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-py==1.10.0
+py==1.11.0
     # via
     #   pytest
     #   tox
-pycryptodomex==3.10.4
+pycryptodomex==3.12.0
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
@@ -185,7 +189,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
-pylint==2.11.1
+pylint==2.12.2
     # via
     #   edx-lint
     #   pylint-celery
@@ -199,17 +203,17 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pymongo==3.12.0
+pymongo==4.0.1
     # via
     #   -r requirements/base.txt
     #   edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via
     #   -r requirements/base.txt
     #   packaging
 pytest==6.2.5
     # via pytest-django
-pytest-django==4.4.0
+pytest-django==4.5.2
     # via -r requirements/test.in
 python-dateutil==2.8.2
     # via
@@ -221,7 +225,7 @@ pytz==2021.3
     #   django
     #   fs
     #   xblock
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   -r requirements/base.txt
     #   xblock
@@ -230,7 +234,7 @@ requests==2.26.0
     #   -r requirements/base.txt
     #   coveralls
     #   pyjwkest
-simplejson==3.17.5
+simplejson==3.17.6
     # via
     #   -r requirements/base.txt
     #   xblock-utils
@@ -248,7 +252,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -260,7 +264,7 @@ toml==0.10.2
     #   tox
 tox==3.24.4
     # via -r requirements/test.in
-typing-extensions==3.10.0.2
+typing-extensions==4.0.1
     # via
     #   astroid
     #   pylint
@@ -268,7 +272,7 @@ urllib3==1.26.7
     # via
     #   -r requirements/base.txt
     #   requests
-virtualenv==20.8.1
+virtualenv==20.10.0
     # via tox
 web-fragments==1.1.0
     # via
@@ -283,14 +287,14 @@ webob==1.8.7
     # via
     #   -r requirements/base.txt
     #   xblock
-wrapt==1.12.1
+wrapt==1.13.3
     # via astroid
 xblock==1.5.1
     # via
     #   -r requirements/base.txt
     #   lti-consumer-xblock
     #   xblock-utils
-xblock-sdk==0.3.0
+xblock-sdk==0.4.0
     # via -r requirements/test.in
 xblock-utils==2.2.0
     # via
