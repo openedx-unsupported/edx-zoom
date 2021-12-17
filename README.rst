@@ -1,9 +1,11 @@
 Zoom XBlock |Build Status| |Coveralls|
 ----------------------------------------------
 
+**This repository is deprecated.**
 
-TBD: Add details here.
+It will be archived by January 2022.
 
+This xblock is being replaced by the LTI integration between Zoom and edx-platform
 
 
 .. |Build Status| image:: https://github.com/edx/edx-zoom/workflows/Python%20CI/badge.svg?branch=master
