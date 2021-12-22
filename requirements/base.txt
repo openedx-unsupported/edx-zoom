@@ -6,13 +6,15 @@
 #
 appdirs==1.4.4
     # via fs
+asgiref==3.4.1
+    # via django
 bleach==4.1.0
     # via lti-consumer-xblock
-certifi==2021.5.30
+certifi==2021.10.8
     # via requests
-charset-normalizer==2.0.6
+charset-normalizer==2.0.9
     # via requests
-django==2.2.24
+django==3.2.10
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -21,9 +23,9 @@ django==2.2.24
     #   django-filter
     #   djangorestframework
     #   edx-django-utils
-    #   jsonfield2
+    #   jsonfield
     #   lti-consumer-xblock
-django-config-models==2.2.0
+django-config-models==2.2.2
     # via lti-consumer-xblock
 django-crum==0.7.9
     # via edx-django-utils
@@ -31,31 +33,31 @@ django-filter==21.1
     # via lti-consumer-xblock
 django-waffle==2.2.1
     # via edx-django-utils
-djangorestframework==3.12.4
+djangorestframework==3.13.1
     # via django-config-models
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via django-config-models
-edx-opaque-keys[django]==2.2.2
+edx-opaque-keys==2.2.2
     # via
     #   -r requirements/base.in
     #   lti-consumer-xblock
-fs==2.4.13
+fs==2.4.14
     # via xblock
 future==0.18.2
     # via pyjwkest
-idna==3.2
+idna==3.3
     # via requests
-jsonfield2==4.0.0.post0
+jsonfield==3.1.0
     # via lti-consumer-xblock
 lazy==1.4
     # via lti-consumer-xblock
-lti-consumer-xblock==3.0.3
+lti-consumer-xblock==3.1.2
     # via -r requirements/base.in
-lxml==4.6.3
+lxml==4.7.1
     # via
     #   lti-consumer-xblock
     #   xblock
-mako==1.1.5
+mako==1.1.6
     # via
     #   lti-consumer-xblock
     #   xblock-utils
@@ -63,38 +65,39 @@ markupsafe==2.0.1
     # via
     #   mako
     #   xblock
-newrelic==7.0.0.166
+newrelic==7.2.4.171
     # via edx-django-utils
 oauthlib==3.1.1
     # via lti-consumer-xblock
-packaging==21.0
+packaging==21.3
     # via bleach
-pbr==5.6.0
+pbr==5.8.0
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
-pycryptodomex==3.10.4
+pycryptodomex==3.12.0
     # via
     #   lti-consumer-xblock
     #   pyjwkest
 pyjwkest==1.4.2
     # via lti-consumer-xblock
-pymongo==3.12.0
+pymongo==4.0.1
     # via edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via packaging
 python-dateutil==2.8.2
     # via xblock
 pytz==2021.3
     # via
     #   django
+    #   djangorestframework
     #   fs
     #   xblock
-pyyaml==5.4.1
+pyyaml==6.0
     # via xblock
 requests==2.26.0
     # via pyjwkest
-simplejson==3.17.5
+simplejson==3.17.6
     # via xblock-utils
 six==1.16.0
     # via
@@ -104,13 +107,13 @@ six==1.16.0
     #   python-dateutil
 sqlparse==0.4.2
     # via django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   edx-django-utils
     #   edx-opaque-keys
 urllib3==1.26.7
     # via requests
-web-fragments==1.1.0
+web-fragments==2.0.0
     # via
     #   xblock
     #   xblock-utils
