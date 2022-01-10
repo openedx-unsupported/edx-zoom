@@ -12,10 +12,10 @@ certifi==2021.5.30
     # via requests
 charset-normalizer==2.0.6
     # via requests
-django==2.2.24
+django==2.2.25
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c common_constraints.txt
+    #   -r base.in
     #   django-config-models
     #   django-crum
     #   django-filter
@@ -37,7 +37,7 @@ edx-django-utils==4.4.0
     # via django-config-models
 edx-opaque-keys[django]==2.2.2
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   lti-consumer-xblock
 fs==2.4.13
     # via xblock
@@ -50,7 +50,7 @@ jsonfield2==4.0.0.post0
 lazy==1.4
     # via lti-consumer-xblock
 lti-consumer-xblock==3.0.3
-    # via -r requirements/base.in
+    # via -r base.in
 lxml==4.6.3
     # via
     #   lti-consumer-xblock
