@@ -5,14 +5,14 @@
 #    make upgrade
 #
 -e git+https://github.com/edx/django-pyfs.git@1.0.3#egg=django-pyfs==1.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 appdirs==1.4.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   fs
 astroid==2.8.0
     # via
-    #   -r requirements/test.in
+    #   -r test.in
     #   edx-lint
     #   pylint
     #   pylint-celery
@@ -22,15 +22,15 @@ backports.entry-points-selectable==1.1.0
     # via virtualenv
 bleach==4.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 certifi==2021.5.30
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 charset-normalizer==2.0.6
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 click==8.0.1
     # via
@@ -41,14 +41,15 @@ click-log==0.1.8
 coverage==5.5
     # via coveralls
 coveralls==3.2.0
-    # via -r requirements/test.in
+    # via -r test.in
 ddt==1.4.4
-    # via -r requirements/test.in
+    # via -r test.in
 distlib==0.3.3
     # via virtualenv
+django==2.2.24
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.txt
+    #   -c common_constraints.txt
+    #   -r base.txt
     #   django-config-models
     #   django-crum
     #   django-filter
@@ -59,35 +60,35 @@ distlib==0.3.3
     #   xblock-sdk
 django-config-models==2.2.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 django-crum==0.7.9
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 django-filter==21.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 django-waffle==2.2.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 djangorestframework==3.12.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django-config-models
 docopt==0.6.2
     # via coveralls
 edx-django-utils==4.4.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django-config-models
 edx-lint==0.5.3
-    # via -r requirements/test.in
+    # via -r test.in
 edx-opaque-keys[django]==2.2.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 filelock==3.3.0
     # via
@@ -95,15 +96,15 @@ filelock==3.3.0
     #   virtualenv
 fs==2.4.13
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock
 future==0.18.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   pyjwkest
 idna==3.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 iniconfig==1.1.1
     # via pytest
@@ -111,55 +112,55 @@ isort==5.9.3
     # via pylint
 jsonfield2==4.0.0.post0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 lazy==1.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 lazy-object-proxy==1.6.0
     # via astroid
 lti-consumer-xblock==3.0.3
-    # via -r requirements/base.txt
-lxml==4.6.3
+    # via -r base.txt
+lxml==4.6.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
     #   xblock
 mako==1.1.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
     #   xblock-utils
 markupsafe==2.0.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   mako
     #   xblock
 mccabe==0.6.1
     # via pylint
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 newrelic==7.0.0.166
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 oauthlib==3.1.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 packaging==21.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   bleach
     #   pytest
     #   tox
 pbr==5.6.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   stevedore
 pep8==1.7.1
-    # via -r requirements/test.in
+    # via -r test.in
 platformdirs==2.4.0
     # via
     #   pylint
@@ -170,7 +171,7 @@ pluggy==1.0.0
     #   tox
 psutil==5.8.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
 py==1.10.0
     # via
@@ -178,12 +179,12 @@ py==1.10.0
     #   tox
 pycryptodomex==3.10.4
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
     #   pyjwkest
 pyjwkest==1.4.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 pylint==2.11.1
     # via
@@ -201,42 +202,42 @@ pylint-plugin-utils==0.6
     #   pylint-django
 pymongo==3.12.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-opaque-keys
 pyparsing==2.4.7
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   packaging
 pytest==6.2.5
     # via pytest-django
 pytest-django==4.4.0
-    # via -r requirements/test.in
+    # via -r test.in
 python-dateutil==2.8.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock
 pytz==2021.3
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django
     #   fs
     #   xblock
 pyyaml==5.4.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock
 requests==2.26.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   coveralls
     #   pyjwkest
 simplejson==3.17.5
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock-utils
 six==1.16.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   bleach
     #   edx-lint
     #   fs
@@ -246,11 +247,11 @@ six==1.16.0
     #   virtualenv
 sqlparse==0.4.2
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   django
 stevedore==3.4.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   edx-django-utils
     #   edx-opaque-keys
 toml==0.10.2
@@ -259,42 +260,38 @@ toml==0.10.2
     #   pytest
     #   tox
 tox==3.24.4
-    # via -r requirements/test.in
-typing-extensions==3.10.0.2
-    # via
-    #   astroid
-    #   pylint
+    # via -r test.in
 urllib3==1.26.7
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   requests
 virtualenv==20.8.1
     # via tox
 web-fragments==1.1.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock
     #   xblock-utils
 webencodings==0.5.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   bleach
 webob==1.8.7
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   xblock
 wrapt==1.12.1
     # via astroid
 xblock==1.5.1
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
     #   xblock-utils
 xblock-sdk==0.3.0
-    # via -r requirements/test.in
+    # via -r test.in
 xblock-utils==2.2.0
     # via
-    #   -r requirements/base.txt
+    #   -r base.txt
     #   lti-consumer-xblock
 
 # The following packages are considered to be unsafe in a requirements file:
